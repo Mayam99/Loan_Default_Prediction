@@ -26,7 +26,7 @@ loan_amount = st.number_input("Enter Loan Amount", min_value=0.0, value=100000.0
 # Add all the required features here...
 
 if st.button("Predict"):
-    features = np.array([[age, credit_score, annual_income, loan_amount]])  # Adjust order to match training columns
+    features = np.array([[age, credit_score]])  # Adjust order to match training columns
     prediction = model.predict(features)
     prob = model.predict_proba(features)[0][1]
 
@@ -34,6 +34,7 @@ if st.button("Predict"):
         st.error(f"⚠️ Likely to Default. (Probability: {prob:.2f})")
     else:
         st.success(f"✅ Safe Customer. (Probability: {prob:.2f})")
+
 
 
 
