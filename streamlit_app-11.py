@@ -16,10 +16,15 @@ st.write("This app predicts if a customer will default on a loan using Logistic 
 
 # --- User Inputs ---
 st.header("Enter Customer Details:")
+age = st.number_input("Age", min_value=18, max_value=100)
+income = st.number_input("Annual Income", min_value=0.0)
+loan_amount = st.number_input("Loan Amount", min_value=0.0)
+credit_score = st.number_input("Credit Score", min_value=300, max_value=900)
 
 # Replace with your dataset's feature names
-feature1 = st.number_input("Feature 1", value=0.0)
-feature2 = st.number_input("Feature 2", value=0.0)
+age = st.number_input("Enter Age", min_value=18, max_value=100, value=30)
+income = st.number_input("Enter Annual Income", min_value=0.0, value=50000.0)
+loan_amount = st.number_input("Enter Loan Amount", min_value=0.0, value=100000.0)
 # Add all the required features here...
 
 if st.button("Predict"):
@@ -31,3 +36,4 @@ if st.button("Predict"):
         st.error(f"⚠️ Likely to Default. (Probability: {prob:.2f})")
     else:
         st.success(f"✅ Safe Customer. (Probability: {prob:.2f})")
+
